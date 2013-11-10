@@ -11,6 +11,8 @@ namespace _01.TestSVN
         static void Main(string[] args)
         {
             Console.WriteLine("Hello Team Members!");
+			Console.WriteLine("Type something");
+			//comments and more
         }
     }
 }
