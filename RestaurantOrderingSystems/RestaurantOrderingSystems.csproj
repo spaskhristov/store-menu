@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C7BEA890-FA1A-499F-96CA-147AB62122F3}</ProjectGuid>
+    <ProjectGuid>{11984B8F-590A-4ED0-8070-625573880C8F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_01.TestSVN</RootNamespace>
-    <AssemblyName>01.TestSVN</AssemblyName>
+    <RootNamespace>RestaurantOrderingSystems</RootNamespace>
+    <AssemblyName>RestaurantOrderingSystems</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,12 +41,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Restaurant\Corporate.cs" />
+    <Compile Include="Restaurant\Items\Desserts\Dessert.cs" />
+    <Compile Include="Restaurant\Items\Desserts\DessertType.cs" />
+    <Compile Include="Restaurant\Items\Dishes\Dish.cs" />
+    <Compile Include="Restaurant\Items\Dishes\DishType.cs" />
+    <Compile Include="Restaurant\Items\Drinks\Drink.cs" />
+    <Compile Include="Restaurant\Items\Drinks\DrinkType.cs" />
+    <Compile Include="Restaurant\Items\Item.cs" />
+    <Compile Include="Restaurant\Menu\Menu.cs" />
+    <Compile Include="Restaurant\Menu\Speciality.cs" />
+    <Compile Include="Restaurant\Restaurant.cs" />
+    <Compile Include="Restaurant\Services\Delivery.cs" />
+    <Compile Include="Restaurant\Orders\Order.cs" />
+    <Compile Include="Restaurant\Services\IServiceable.cs" />
+    <Compile Include="Restaurant\Orders\OrderState.cs" />
+    <Compile Include="Restaurant\Services\Serve.cs" />
+    <Compile Include="Restaurant\Table.cs" />
+    <Compile Include="Restaurant\Zone.cs" />
+    <Compile Include="Restaurant\People\Clients\Client.cs" />
+    <Compile Include="Restaurant\People\Clients\InStoreClient.cs" />
+    <Compile Include="Restaurant\People\Clients\DeliveryClient.cs" />
+    <Compile Include="Restaurant\People\Personnel\Cashier.cs" />
+    <Compile Include="Restaurant\People\Personnel\Cook.cs" />
+    <Compile Include="Restaurant\People\Person.cs" />
+    <Compile Include="Restaurant\People\Personnel\Employee.cs" />
+    <Compile Include="Restaurant\People\Personnel\Manager.cs" />
+    <Compile Include="Restaurant\People\Personnel\Waiter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

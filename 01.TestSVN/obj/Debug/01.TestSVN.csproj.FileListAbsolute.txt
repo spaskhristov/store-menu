@@ -1,1 +1,0 @@
-c:\users\conko\documents\visual studio 2012\Projects\SVNTeamworkProject\01.TestSVN\bin\Debug\01.TestSVN.exe.config
