@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\PROJECT\OOP Project\RestaurantOrderingSystems\bin\Debug\RestaurantOrderingSystems.exe
+C:\Users\Administrator\Desktop\PROJECT\OOP Project\RestaurantOrderingSystems\bin\Debug\RestaurantOrderingSystems.pdb
+C:\Users\Administrator\Desktop\PROJECT\OOP Project\RestaurantOrderingSystems\obj\Debug\RestaurantOrderingSystems.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\PROJECT\OOP Project\RestaurantOrderingSystems\obj\Debug\RestaurantOrderingSystems.exe
+C:\Users\Administrator\Desktop\PROJECT\OOP Project\RestaurantOrderingSystems\obj\Debug\RestaurantOrderingSystems.pdb
