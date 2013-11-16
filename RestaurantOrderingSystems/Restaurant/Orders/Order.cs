@@ -13,7 +13,7 @@ namespace RestaurantOrderingSystems
         public Table Table { get; set; }
         public decimal VAT { get; set; }
         public decimal TotalPrice { get; set; }
-        public int CookTime { get; set; }
+        public int CookTime { get; set; }//@Tsonko, lets not use CookTime field
         public Item[] Items { get; set; }
         public bool Paid { get; set; }
         public DateTime TimeToLive { get; set; }
