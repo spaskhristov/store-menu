@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RestaurantOrderingSystem.Corporate">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\Corporate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Dessert">
+    <Position X="9.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Restaurant\Items\Desserts\Dessert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Dish">
+    <Position X="5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAEAAAAAAAACAAAA=</HashCode>
+      <FileName>Restaurant\Items\Dishes\Dish.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Drink">
+    <Position X="14" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\Items\Drinks\Drink.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Item">
+    <Position X="9.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQAAAACABAAAAAAgAAAAAA=</HashCode>
+      <FileName>Restaurant\Items\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Menu">
+    <Position X="19" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAABAAAAAAACAAA=</HashCode>
+      <FileName>Restaurant\Menu\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Speciality">
+    <Position X="21" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgCAAAAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\Menu\Speciality.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Order">
+    <Position X="21.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAgiIAAAAAEQIBAAAAAQQABAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\Orders\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Reservation">
+    <Position X="19" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAQAQAAAAAgAABAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\Orders\Reservation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Client">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\People\Clients\Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.DeliveryClient">
+    <Position X="13.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\People\Clients\DeliveryClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.InStoreClient">
+    <Position X="16.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\People\Clients\InStoreClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Person">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\People\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Cashier">
+    <Position X="5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\People\Personnel\Cashier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Cook">
+    <Position X="8" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\People\Personnel\Cook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Employee">
+    <Position X="8" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\People\Personnel\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Manager">
+    <Position X="5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\People\Personnel\Manager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Waiter">
+    <Position X="11" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\People\Personnel\Waiter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Restaurant">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAEAAQAAQCAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\Restaurant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Delivery" BaseTypeListCollapsed="true">
+    <Position X="23" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\Services\Delivery.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Serve" BaseTypeListCollapsed="true">
+    <Position X="21" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAgAAAggAAAAAoAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Restaurant\Services\Serve.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Table">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\Table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RestaurantOrderingSystem.Zone">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\Zone.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="RestaurantOrderingSystem.IServiceable">
+    <Position X="19" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\Services\IServiceable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="RestaurantOrderingSystem.DessertType">
+    <Position X="11.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAgAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\Items\Desserts\DessertType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RestaurantOrderingSystem.DishType">
+    <Position X="7" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAgAAACAAAAAAAAAA=</HashCode>
+      <FileName>Restaurant\Items\Dishes\DishType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RestaurantOrderingSystem.DrinkType">
+    <Position X="16" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAEACAAgAAAAAAIAAA=</HashCode>
+      <FileName>Restaurant\Items\Drinks\DrinkType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RestaurantOrderingSystem.OrderState">
+    <Position X="23.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACBAACAAAAAAAAAAAAAAAAAAAAAAAICAAAA=</HashCode>
+      <FileName>Restaurant\Orders\OrderState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
