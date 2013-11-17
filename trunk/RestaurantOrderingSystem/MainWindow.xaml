@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="517" Background="#FFD2F3C2">
+            <TextBlock HorizontalAlignment="Stretch" Margin="185,25,134,10" TextWrapping="Wrap" FontWeight="Bold" FontSize="14"><Run Language="bg-bg" Text="Restaurant AVENTURINE"/></TextBlock>
+        </Grid>
+
     </Grid>
 </Window>
