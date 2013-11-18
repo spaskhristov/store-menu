@@ -4,8 +4,8 @@
         Title="Aventurine - Restaurant Ordering System"
         WindowState="Maximized"
         WindowStyle="None">
-    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid Background="#FFD2F3C2" Height="50" HorizontalAlignment="Stretch">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Background="#FFD2F3C2" HorizontalAlignment="Stretch" Height="50"  VerticalAlignment="Top">
             <TextBlock
                 Language="bg-bg"
                 Text="Restaurant AVENTURINE"
@@ -14,11 +14,14 @@
         		FontSize="20"
                 Margin="0,10,0,0" />
         </Grid>
-        <Grid Background="AliceBlue" Height="50" HorizontalAlignment="Stretch">
-            <Button Content="New Order" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Height="30"/>
-            <Button Content="Orders" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Height="30"/>
-            <Button Content="Clients" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="75" Height="30"/>
-            <Button Content="Log Off" HorizontalAlignment="Right" Margin="0,10,11.6,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click_1"/>
+        <Grid Background="AliceBlue" HorizontalAlignment="Stretch" Height="50" VerticalAlignment="Top" Margin="0,50,0,428.8">
+            <Button Content="Page1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Page1"/>
+            <Button Content="Page2" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Page2"/>
+            <Button Content="Page3" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Page3"/>
+            <Button Content="Page4" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Page4"/>
+            <Button Content="Page5" HorizontalAlignment="Left" Margin="330,10,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Page5"/>
+            <Button Content="Log Off" HorizontalAlignment="Right" Margin="0,10,11.6,0" VerticalAlignment="Top" Width="75" Height="30" Click="LogOffButtonClick"/>
         </Grid>
-    </StackPanel>
+        <Frame Name="FrameInWindow" VerticalAlignment="Stretch" Margin="0,100, 0, 0" NavigationUIVisibility="Hidden"/>
+    </Grid>
 </Window>

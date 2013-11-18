@@ -23,13 +23,40 @@ namespace RestaurantOrderingSystem
         public MainWindow()
         {
             InitializeComponent();
+
+            // Open Page1.xaml
+            FrameInWindow.Navigate(new System.Uri("UIPages/Page1.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void Page1(object sender, RoutedEventArgs e)
+        {
+            FrameInWindow.Navigate(new System.Uri("UIPages/Page1.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void Page2(object sender, RoutedEventArgs e)
+        {
+            FrameInWindow.Navigate(new System.Uri("UIPages/Page2.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void Page3(object sender, RoutedEventArgs e)
+        {
+            FrameInWindow.Navigate(new System.Uri("UIPages/Page3.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void Page4(object sender, RoutedEventArgs e)
+        {
+            FrameInWindow.Navigate(new System.Uri("UIPages/Page4.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void Page5(object sender, RoutedEventArgs e)
+        {
+            FrameInWindow.Navigate(new System.Uri("UIPages/Page5.xaml", UriKind.RelativeOrAbsolute));
         }
 
         // Close the main window
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void LogOffButtonClick(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
     }
 }
