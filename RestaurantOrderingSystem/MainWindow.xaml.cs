@@ -19,13 +19,22 @@ namespace RestaurantOrderingSystem
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    { 
         public MainWindow()
         {
-            InitializeComponent();
-
-            // Open Page1.xaml
-            FrameInWindow.Navigate(new System.Uri("UIPages/Page1.xaml", UriKind.RelativeOrAbsolute));
+            if (!Login.IsOpenLogin)
+            {
+                InitializeComponent();
+                //Open Page1.xaml
+                FrameInWindow.Navigate(new System.Uri("UIPages/Page1.xaml", UriKind.RelativeOrAbsolute));
+            }
+            else if (Login.IsOpenLogin)
+            {
+                Login.IsOpenLogin = true;
+                Login login = new Login();
+                login.Show();
+                this.Hide();
+            }
         }
 
         private void Page1(object sender, RoutedEventArgs e)
