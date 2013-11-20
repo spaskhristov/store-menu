@@ -66,6 +66,8 @@ namespace RestaurantOrderingSystem
                 }
                 myReader.Close();
                 myConn.Close();
+                //added change because exe load problems @Tsonko
+                myConn.Dispose();
             }
             catch (Exception ex)
             {
