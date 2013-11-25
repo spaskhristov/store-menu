@@ -20,7 +20,7 @@ namespace RestaurantOrderingSystem
     /// </summary>
     public partial class Login : Window
     {
-        public static  bool isOpenLogin = true;
+        public static  bool isOpenLogin = true;//Test
         public Login()
         {
             InitializeComponent();
