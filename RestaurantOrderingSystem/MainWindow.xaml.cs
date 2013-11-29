@@ -24,6 +24,11 @@ namespace RestaurantOrderingSystem
         {
             if (!Login.IsOpenLogin)
             {
+                //added timer function @Tsonko
+                System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
+                timer.Tick += new EventHandler(Timer_Tick);
+                timer.Interval = new TimeSpan(0, 0, 1);
+                timer.Start(); 
                 InitializeComponent();
                 //Open Page1.xaml
                 FrameInWindow.Navigate(new System.Uri("UIPages/Page1.xaml", UriKind.RelativeOrAbsolute));
@@ -66,6 +71,12 @@ namespace RestaurantOrderingSystem
         private void LogOffButtonClick(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        //timer method
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            lblDigitalClock.Content = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }
