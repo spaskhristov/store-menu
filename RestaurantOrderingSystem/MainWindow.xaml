@@ -4,26 +4,61 @@
         Title="Aventurine - Restaurant Ordering System"
         WindowState="Maximized"
         WindowStyle="None">
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid Background="#FFD2F3C2" HorizontalAlignment="Stretch" Height="50"  VerticalAlignment="Top">
-            <TextBlock
-                Language="bg-bg"
-                Text="Restaurant AVENTURINE"
-                TextAlignment="Center"
-        		FontWeight="Bold"
-        		FontSize="20"
-                Margin="0,10,0,0" />
-        </Grid>
-        <Grid Background="AliceBlue" HorizontalAlignment="Stretch" Height="50" VerticalAlignment="Top" Margin="0,50,0,428.8">
-            <Button Content="Page1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Page1"/>
-            <Button Content="Page2" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Page2"/>
-            <Button Content="Page3" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Page3"/>
-            <Button Content="Page4" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Page4"/>
-            <Button Content="Page5" HorizontalAlignment="Left" Margin="330,10,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Page5"/>
-            <Button Content="Log Off" HorizontalAlignment="Right" Margin="0,10,11.6,0" VerticalAlignment="Top" Width="75" Height="30" Click="LogOffButtonClick"/>
-            <Label Height="32" x:Name="lblDigitalClock" VerticalAlignment="Top" Width="100" FontSize="20" FontFamily="Georgia" 
-        		FontWeight="Bold" Canvas.Left="41" Canvas.Top="248" Margin="521,10,139,0" />
-        </Grid>
-        <Frame Name="FrameInWindow" VerticalAlignment="Stretch" Margin="0,100, 0, 0" NavigationUIVisibility="Hidden"/>
+    <Grid Background="#FFD2F3C2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Label 
+            Content="Restaurant" FontFamily="Traditional Arabic" FontWeight="Bold" FontSize="20" 
+            HorizontalAlignment="Center" Margin="214,10,440,479" Width="108" />
+        <Label
+            Content="Aventurine" FontFamily="Matura MT Script Capitals" FontSize="45"
+            HorizontalAlignment="Center" Margin="299,10,217.6,460.8" Width="245"/>
+        <Label
+            x:Name="clock" FontFamily="Georgia" FontSize="16"
+            Height="28" Width="80" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,14.6,0" />
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,55,0,62" >
+            <TabItem Header="Orders">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Label Content="Search for order" HorizontalAlignment="Right" Width="100" Margin="0,3,380,7"/>
+                        <TextBox HorizontalAlignment="Right" Width="220" Margin="0,3,160,7"/>
+                        <Button Content="Find Now" HorizontalAlignment="Right" Width="70" Margin="0,3,80,7"/>
+                        <Button Content="Clear" HorizontalAlignment="Right" Width="50" Margin="0,3,20,7"/>
+                    </Grid>
+                    <Grid Grid.Row="1" VerticalAlignment="Stretch">
+                        <DataGrid
+                            x:Name="OrdersDataGrid"
+                            RowHeaderWidth="0" 
+                            ColumnWidth="*"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="...">
+                <Grid Background="#FFE5E5E5">
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="...">
+                <Grid Background="#FFE5E5E5">
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button
+            Content="Show Order"
+            HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="80" Height="28" Margin="15,0,0,15" 
+            Click="ShowOrderButtonClick"/>
+        <Button
+            Content="New Order" 
+            HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="80" Height="28" Margin="112,0,0,15" 
+            Click="NewOrderButtonClick"/>
+        <Button
+            Content="Log Off"
+            HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="80" Height="28" Margin="0,0,15,15"
+            Click="LogOffButtonClick"/>
     </Grid>
 </Window>

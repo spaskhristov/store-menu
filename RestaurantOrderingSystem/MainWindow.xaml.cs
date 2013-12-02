@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,64 +21,86 @@ namespace RestaurantOrderingSystem
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    { 
+    {
         public MainWindow()
         {
-            if (!Login.IsOpenLogin)
+            if (Login.IsOpen)
             {
-                //added timer function @Tsonko
-                System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
-                timer.Tick += new EventHandler(Timer_Tick);
-                timer.Interval = new TimeSpan(0, 0, 1);
-                timer.Start(); 
-                InitializeComponent();
-                //Open Page1.xaml
-                FrameInWindow.Navigate(new System.Uri("UIPages/Page1.xaml", UriKind.RelativeOrAbsolute));
-            }
-            else if (Login.IsOpenLogin)
-            {
-                Login.IsOpenLogin = true;
+                Login.IsOpen = true;
                 Login login = new Login();
                 login.Show();
-                this.Hide();
+                this.Close();
+            }
+            else
+            {
+                // Clock
+                System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
+                timer.Tick += new EventHandler(TimerTick);
+                timer.Interval = new TimeSpan(0, 0, 1);
+                timer.Start();
+
+                InitializeComponent();
+
+                // List of orders
+                LoadTable();
             }
         }
 
-        private void Page1(object sender, RoutedEventArgs e)
+        // Clock method
+        private void TimerTick(object sender, EventArgs e)
         {
-            FrameInWindow.Navigate(new System.Uri("UIPages/Page1.xaml", UriKind.RelativeOrAbsolute));
+            clock.Content = DateTime.Now.ToString("HH:mm:ss");
         }
 
-        private void Page2(object sender, RoutedEventArgs e)
+        private void LoadTable()
         {
-            FrameInWindow.Navigate(new System.Uri("UIPages/Page2.xaml", UriKind.RelativeOrAbsolute));
+            try
+            {
+                string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Orders.mdb";
+                OleDbConnection myConn = new OleDbConnection(myConnection);
+
+                // Open connection to database
+                myConn.Open();
+
+                string selectString = "SELECT * FROM Orders";
+                OleDbCommand createCommand = new OleDbCommand(selectString, myConn);
+                createCommand.ExecuteNonQuery();
+
+                OleDbDataAdapter dataAdp = new OleDbDataAdapter(createCommand);
+                DataTable dt = new DataTable("Orders");
+                dataAdp.Fill(dt);
+                OrdersDataGrid.ItemsSource = dt.DefaultView;
+                dataAdp.Update(dt);
+
+                // Close connection to database
+                myConn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void Page3(object sender, RoutedEventArgs e)
+        // Create a new order
+        private void NewOrderButtonClick(object sender, RoutedEventArgs e)
         {
-            FrameInWindow.Navigate(new System.Uri("UIPages/Page3.xaml", UriKind.RelativeOrAbsolute));
+            //this.Hide();
+            NewOrder window = new NewOrder();
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Show();
+            //this.Close();   
         }
 
-        private void Page4(object sender, RoutedEventArgs e)
+        // Show some order
+        private void ShowOrderButtonClick(object sender, RoutedEventArgs e)
         {
-            FrameInWindow.Navigate(new System.Uri("UIPages/Page4.xaml", UriKind.RelativeOrAbsolute));
-        }
 
-        private void Page5(object sender, RoutedEventArgs e)
-        {
-            FrameInWindow.Navigate(new System.Uri("UIPages/Page5.xaml", UriKind.RelativeOrAbsolute));
         }
 
         // Close the main window
         private void LogOffButtonClick(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        //timer method
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            lblDigitalClock.Content = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

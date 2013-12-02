@@ -20,54 +20,58 @@ namespace RestaurantOrderingSystem
     /// </summary>
     public partial class Login : Window
     {
-        public static  bool isOpenLogin = true;//Test
+        public static bool isOpen = true;
+
         public Login()
         {
             InitializeComponent();
         }
-        public static bool IsOpenLogin
+
+        public static bool IsOpen
         {
             get
             {
-                return isOpenLogin;
+                return isOpen;
             }
             set
             {
-                isOpenLogin = value;
+                isOpen = value;
             }
         }
+
         private void LoginButtonClick(object sender, RoutedEventArgs e)
         {
-             try
+            try
             {
-                string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Restaurant\Database\login.mdb";
+                string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Login.mdb";
                 OleDbConnection myConn = new OleDbConnection(myConnection);
                 string imputName = this.BoxName.Text.Trim();
                 string imputPass = this.BoxPassword.Password;
-                string selectstring = "SELECT * FROM login WHERE User='" + imputName + "' AND Pass='" + imputPass + "'";
-                OleDbCommand selectCommand = new OleDbCommand(selectstring, myConn);
+                string selectString = "SELECT * FROM Login WHERE User='" + imputName + "' AND Pass='" + imputPass + "'";
+                OleDbCommand selectCommand = new OleDbCommand(selectString, myConn);
                 myConn.Open();
                 OleDbDataReader myReader = selectCommand.ExecuteReader();
+
                 int count = 0;
                 while (myReader.Read())
                 {
                     count++;
-                 }
+                }
+
                 if (count == 1)
                 {
-                    IsOpenLogin = false;
+                    IsOpen = false;
                     this.Hide();
                     MainWindow main = new MainWindow();
                     main.Show();
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Username or password not correct!!!");
+                    MessageBox.Show("Username or password not correct!");
+                    myReader.Close();
+                    myConn.Close();
                 }
-                myReader.Close();
-                myConn.Close();
-                //added change because exe load problems @Tsonko
-                myConn.Dispose();
             }
             catch (Exception ex)
             {
