@@ -20,6 +20,7 @@
             Name="MenuCategory"
 	        HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="91,63,0,0"
             Loaded="ComboBoxLoadMenuCategory"
+            ItemsSource="{Binding ComboBoxLoadMenuCategory}"
 	        SelectionChanged="ComboBoxSelectionMenuCategory"/>
 
         <Label
@@ -28,9 +29,10 @@
         <ComboBox
             Name="MenuItem"
             HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="91,107,0,0"
-	        Loaded="ComboBoxLoadMenuItem"
-            SelectionChanged="ComboBoxSelectionMenuItem"/>
-
+	        ItemsSource="{Binding ElementName=MenuCategory, NotifyOnTargetUpdated=True}"
+            Loaded="ComboBoxLoadMenuCategory"
+            SelectionChanged="ComboBoxSelectionMenuCategory"           
+        />
         <CheckBox
             Name="CheckBox"  Content="Check me"
             HorizontalAlignment="Left" VerticalAlignment="Top" Margin="403,89,0,0"/>
