@@ -24,15 +24,15 @@ namespace RestaurantOrderingSystem
     {
         public MainWindow()
         {
-            if (Login.IsOpen)
-            {
-                Login.IsOpen = true;
-                Login login = new Login();
-                login.Show();
-                this.Close();
-            }
-            else
-            {
+            //if (Login.IsOpen)
+            //{
+            //    Login.IsOpen = true;
+            //    Login login = new Login();
+            //    login.Show();
+            //    this.Close();
+            //}
+            //else
+            //{
                 // Clock
                 System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
                 timer.Tick += new EventHandler(TimerTick);
@@ -43,7 +43,7 @@ namespace RestaurantOrderingSystem
 
                 // List of orders
                 LoadTable();
-            }
+            //}
         }
 
         // Clock method

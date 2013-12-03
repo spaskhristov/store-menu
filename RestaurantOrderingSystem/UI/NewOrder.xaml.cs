@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
@@ -21,11 +23,14 @@ namespace RestaurantOrderingSystem
     /// <summary>
     /// Interaction logic for NewOrder.xaml
     /// </summary>
-    public partial class NewOrder : Window
+    public partial class NewOrder : Window, INotifyPropertyChanged
     {
+        public ObservableCollection<NewOrder> Items { get; set; }
         public NewOrder()
         {
             InitializeComponent();
+            Items = new ObservableCollection<NewOrder>();
+            this.DataContext = this;
         }
 
         // Get data for ComboBox about Tables
@@ -176,5 +181,6 @@ namespace RestaurantOrderingSystem
                 }
             }
         }
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
