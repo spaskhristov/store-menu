@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantOrderingSystem
 {
-    abstract class Item
+    public abstract class Item
     {
         // Properties
         public string Name { get; set; }

@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RestaurantOrderingSystem.UI;
 
 namespace RestaurantOrderingSystem
 {
@@ -33,7 +34,7 @@ namespace RestaurantOrderingSystem
             //}
             //else
             //{
-                // Clock
+            //    // Clock
                 System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
                 timer.Tick += new EventHandler(TimerTick);
                 timer.Interval = new TimeSpan(0, 0, 1);

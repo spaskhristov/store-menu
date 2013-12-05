@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using RestaurantOrderingSystem.UI;
 
 namespace RestaurantOrderingSystem
 {
@@ -31,6 +32,7 @@ namespace RestaurantOrderingSystem
             InitializeComponent();
             Items = new ObservableCollection<NewOrder>();
             this.DataContext = this;
+            this.GridForBinding.DataContext = new MenuCategory();
         }
 
         // Get data for ComboBox about Tables
@@ -43,19 +45,19 @@ namespace RestaurantOrderingSystem
         }
 
         // Get data for ComboBox about Menu category
-        private void ComboBoxLoadMenuCategory(object sender, RoutedEventArgs e)
-        {
-            List<string> data = new List<string>() {
-                "Starters", 
-                "Main Courses",
-                "Drinks", 
-                "Desserts"
-            };
+        //private void ComboBoxLoadMenuCategory(object sender, RoutedEventArgs e)
+        //{
+        //    List<string> data = new List<string>() {
+        //        "Starters", 
+        //        "Main Courses",
+        //        "Drinks", 
+        //        "Desserts"
+        //    };
 
-            var comboBox = sender as ComboBox;
-            comboBox.ItemsSource = data;
-            comboBox.SelectedIndex = 0;
-        }
+        //    var comboBox = sender as ComboBox;
+        //    comboBox.ItemsSource = data;
+        //    comboBox.SelectedIndex = 0;
+        //}
 
         // Get data for ComboBox about Menu items
         private void ComboBoxLoadMenuItem(object sender, RoutedEventArgs e)
