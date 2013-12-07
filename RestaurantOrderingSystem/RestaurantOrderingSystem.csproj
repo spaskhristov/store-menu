@@ -53,8 +53,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UI\BaseViewModel.cs" />
-    <Compile Include="UI\MenuCategory.cs" />
     <Compile Include="UI\NewOrder.xaml.cs">
       <DependentUpon>NewOrder.xaml</DependentUpon>
     </Compile>
@@ -152,24 +150,6 @@
     <Content Include="Database\Orders.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Images\MenuCategory.png" />
-    <Resource Include="Images\Beer.png" />
-    <Resource Include="Images\Coffee.png" />
-    <Resource Include="Images\BlackTea.png" />
-    <Resource Include="Images\Hot Chocolate.png" />
-    <Resource Include="Images\Meal.png" />
-    <Resource Include="Images\Milkshake Vanilla.png" />
-    <Resource Include="Images\Pizza.png" />
-    <Resource Include="Images\Spaghetti.png" />
-    <Resource Include="Images\Tea.png" />
-    <Resource Include="Images\Toast.png" />
-    <Resource Include="Images\Wine.png" />
-    <Resource Include="Images\Apple.png" />
-    <Resource Include="Images\Cherry cake.png" />
-    <Resource Include="Images\Chocolate icecream.png" />
-    <Resource Include="Images\Orange.png" />
-    <Resource Include="Images\Strawberry cake.png" />
-    <Resource Include="Images\Strawberry icecream.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
