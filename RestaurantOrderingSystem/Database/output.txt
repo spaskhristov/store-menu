@@ -1,4 +1,6 @@
 Table : 1
-Category: Drinks, Item: Glass House Wine (250 ml), Price: 4,25
+Category: Fruit, Item: Fruit, Price: $ ...
+The checkBox is checked: False
+Radio button: 2
 Selected date: 
-Current date and time: 4.12.2013 г. 15:21:44
+Current date and time: 7.12.2013 г. 06:50:24 ч.

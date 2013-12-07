@@ -43,13 +43,14 @@ namespace RestaurantOrderingSystem
         {
             try
             {
-                string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Login.mdb";
+                string myConnection = @"provider=microsoft.jet.oledb.4.0; data source=..\..\Database\Login.mdb";
                 OleDbConnection myConn = new OleDbConnection(myConnection);
+                myConn.Open();
                 string imputName = this.BoxName.Text.Trim();
                 string imputPass = this.BoxPassword.Password;
                 string selectString = "SELECT * FROM Login WHERE User='" + imputName + "' AND Pass='" + imputPass + "'";
                 OleDbCommand selectCommand = new OleDbCommand(selectString, myConn);
-                myConn.Open();
+                //myConn.Open();
                 OleDbDataReader myReader = selectCommand.ExecuteReader();
 
                 int count = 0;
