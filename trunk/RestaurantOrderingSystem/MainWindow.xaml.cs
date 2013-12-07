@@ -25,26 +25,84 @@ namespace RestaurantOrderingSystem
     {
         public MainWindow()
         {
-            //if (Login.IsOpen)
-            //{
-            //    Login.IsOpen = true;
-            //    Login login = new Login();
-            //    login.Show();
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    // Clock
+            if (Login.IsOpen)
+            {
+                Login.IsOpen = true;
+                Login login = new Login();
+                login.Show();
+                this.Close();
+            }
+            else
+            {
+                // Clock
                 System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
                 timer.Tick += new EventHandler(TimerTick);
                 timer.Interval = new TimeSpan(0, 0, 1);
                 timer.Start();
 
-                InitializeComponent();
+            //create list for Datagrid table
+                var dataDesserts = new List<Dessert>
+                    {
+                        new Dessert()
+                        {
+                            ItemDescription = "Orange",
+                            Quantity = 1,
+                            Price = 1
+                        },
+                        new Dessert()
+                        {
+                            ItemDescription = "Apple",
+                            Quantity = 1,
+                            Price = 1
+                        },
+                        new Dessert()
+                        {
+                            ItemDescription = "Cherry Cake",
+                            Quantity = 1,
+                            Price = 4
+                        },
+                        new Dessert()
+                        {
+                            ItemDescription = "Strawberry Cake",
+                            Quantity = 1,
+                            Price = 5
+                        },
+                        new Dessert()
+                        {
+                            ItemDescription = "Strawberry IceCream",
+                            Quantity = 1,
+                            Price = 2
+                        },
+                    };                
 
+                InitializeComponent();
+                
+                //apply datagrid source
+                tableDesserts.ItemsSource = dataDesserts;
+                
+                //list of images
+                images.DataContext = new[] 
+            {
+                new { Title="Orange", Image="/Images/Orange.png" },
+                new { Title="Apple", Image="/Images/Apple.png" },
+                new { Title="Cherry cake", Image="/Images/Cherry cake.png" },
+                new { Title="Strawberry cake", Image="/Images/Strawberry cake.png" },
+                new { Title="Strawberry icecream", Image="/Images/Strawberry icecream.png" },
+                new { Title="Toast", Image="/Images/Toast.png" },
+                new { Title="Spaghetti", Image="/Images/Spaghetti.png" },
+                new { Title="Pizza", Image="/Images/Pizza.png" },
+                new { Title="Meal", Image="/Images/Meal.png" },
+                new { Title="Tea", Image="/Images/Tea.png" },
+                new { Title="BlackTea", Image="/Images/BlackTea.png" },
+                new { Title="Coffee", Image="/Images/Coffee.png" },
+                new { Title="Hot Chocolate", Image="/Images/Hot Chocolate.png" },
+                new { Title="Milkshake Vanilla", Image="/Images/Milkshake Vanilla.png" },
+                new { Title="Wine", Image="/Images/Wine.png" },
+                new { Title="Beer", Image="/Images/Beer.png" }
+            };
                 // List of orders
                 LoadTable();
-            //}
+            }
         }
 
         // Clock method
@@ -103,5 +161,6 @@ namespace RestaurantOrderingSystem
         {
             this.Close();
         }
+        //<Image Source="/Images/login.jpg"/>
     }
 }
