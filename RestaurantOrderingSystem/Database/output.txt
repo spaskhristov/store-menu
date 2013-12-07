@@ -1,6 +1,6 @@
 Table : 1
-Category: Cake, Item: Cake, Price: $ ...
+Category: Fruit, Item: Fruit, Price: $ ...
 The checkBox is checked: False
 Radio button: 2
 Selected date: 
-Current date and time: 5.12.2013 г. 05:30:50 ч.
+Current date and time: 7.12.2013 г. 06:50:24 ч.

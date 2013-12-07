@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\conko\Documents\SVNTeamworkProject\RestaurantOrderingSystem\obj\Debug\
+D:\SVNTeamworkProject\SVNTeamworkProject0712\RestaurantOrderingSystem\obj\Debug\
 RestaurantOrderingSystem
 none
 false
 DEBUG;TRACE
-C:\Users\conko\Documents\SVNTeamworkProject\RestaurantOrderingSystem\App.xaml
+D:\SVNTeamworkProject\SVNTeamworkProject0712\RestaurantOrderingSystem\App.xaml
 3-1037926173
 3-1894387090
 411960139855
 12-1401562060
 UI\NewOrder.xaml;UI\Login.xaml;MainWindow.xaml;
 
-True
+False
 
