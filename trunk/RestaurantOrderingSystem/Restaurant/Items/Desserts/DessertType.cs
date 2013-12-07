@@ -1,6 +1,6 @@
 ﻿namespace RestaurantOrderingSystem
 {
-    enum DessertType
+    public enum DessertType
     {
         Fruit, Cake, IceCream
     }
