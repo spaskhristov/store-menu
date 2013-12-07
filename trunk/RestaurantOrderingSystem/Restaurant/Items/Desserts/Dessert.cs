@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantOrderingSystem
 {
-    public class Dessert : Item
+    class Dessert : Item
     {
         // Property
         public DessertType DessertType { get; set; }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
@@ -17,24 +15,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using RestaurantOrderingSystem.UI;
 
 namespace RestaurantOrderingSystem
 {
     /// <summary>
     /// Interaction logic for NewOrder.xaml
     /// </summary>
-    public partial class NewOrder : Window, INotifyPropertyChanged
+    public partial class NewOrder : Window
     {
-        public ObservableCollection<NewOrder> Items { get; set; }
         public NewOrder()
         {
             InitializeComponent();
-            Items = new ObservableCollection<NewOrder>();
-            this.DataContext = this;
-            this.GridForBinding.DataContext = new MenuCategory();
         }
-
         // Get data for ComboBox about Tables
         private void ComboBoxLoadTable(object sender, RoutedEventArgs e)
         {
@@ -43,73 +35,105 @@ namespace RestaurantOrderingSystem
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
         }
-
         // Get data for ComboBox about Menu category
-        //private void ComboBoxLoadMenuCategory(object sender, RoutedEventArgs e)
-        //{
-        //    List<string> data = new List<string>() {
-        //        "Starters", 
-        //        "Main Courses",
-        //        "Drinks", 
-        //        "Desserts"
-        //    };
-
-        //    var comboBox = sender as ComboBox;
-        //    comboBox.ItemsSource = data;
-        //    comboBox.SelectedIndex = 0;
-        //}
-
-        // Get data for ComboBox about Menu items
-        private void ComboBoxLoadMenuItem(object sender, RoutedEventArgs e)
+        private void ComboBoxLoadMenuCategory(object sender, RoutedEventArgs e)
         {
+            List<string> data = new List<string>();
             try
             {
                 string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Menu.mdb";
                 OleDbConnection myConn = new OleDbConnection(myConnection);
-
                 myConn.Open();
-
-                // TODO: selectedType from ComboBoxLoadMenuCategory
-                string selectedType = "Starters";
-
-                string selectString = "SELECT Item FROM Menu WHERE Type='" + selectedType + "'";
+                string selectString = "SELECT Type FROM Menu";
                 OleDbCommand createCommand = new OleDbCommand(selectString, myConn);
                 createCommand.ExecuteNonQuery();
-
                 OleDbDataAdapter dataAdp = new OleDbDataAdapter(createCommand);
                 DataSet myDataSet = new DataSet();
                 dataAdp.Fill(myDataSet, "Menu");
-
-                int RowMax = myDataSet.Tables[0].Rows.Count;
-
-                // ... A List.
-                List<string> data = new List<string>();
-                for (int n = 0; n < RowMax; n++)
+                int rowMax = myDataSet.Tables[0].Rows.Count;
+                for (int n = 0; n < rowMax; n++)
                 {
                     data.Add(myDataSet.Tables[0].Rows[n].ItemArray[0].ToString());
                 }
-
-                // ... Get the ComboBox reference.
-                var comboBox = sender as ComboBox;
-
-                // ... Assign the ItemsSource to the List.
-                comboBox.ItemsSource = data;
-
-                // ... Make the first item selected.
-                comboBox.SelectedIndex = 0;
+                 myConn.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            } 
+            var comboBox = sender as ComboBox;
+            data.Distinct();
+            comboBox.ItemsSource = data.Distinct();
+            comboBox.SelectedIndex = 0;
+        }
+        private void ComboBoxLoadMenuItem(object sender, RoutedEventArgs e)
+        {
+            ComboBoxLoadMenuItem();
+        }
+        // Get data for ComboBox about Menu items
+        private void ComboBoxLoadMenuItem()
+        {
+            List<string> data = new List<string>();
+            try
+            {
+                string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Menu.mdb";
+                OleDbConnection myConn = new OleDbConnection(myConnection);
+                myConn.Open();
+                string selectedType = this.MenuCategory.SelectedItem.ToString();
+                string selectString = "SELECT Item FROM Menu WHERE Type='" + selectedType + "'";
+                OleDbCommand createCommand = new OleDbCommand(selectString, myConn);
+                createCommand.ExecuteNonQuery();
+                OleDbDataAdapter dataAdp = new OleDbDataAdapter(createCommand);
+                DataSet myDataSet = new DataSet();
+                dataAdp.Fill(myDataSet, "Menu");
+                int rowMax = myDataSet.Tables[0].Rows.Count;
+                for (int n = 0; n < rowMax; n++)
+                {
+                    data.Add(myDataSet.Tables[0].Rows[n].ItemArray[0].ToString());
+                }
+                 myConn.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } 
+            this.MenuItem.ItemsSource = data.Distinct();
+            this.MenuItem.SelectedIndex = 0;
+        }
+        private void PriceItem()
+        {
+            double priceItem = 0;
+            try
+            {
+                string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Menu.mdb";
+                OleDbConnection myConn = new OleDbConnection(myConnection);
+                myConn.Open();
+
+                string selectedItem = this.MenuItem.SelectedItem.ToString();
+
+                string selectString = "SELECT Price FROM Menu WHERE Item='" + selectedItem + "'";
+                OleDbCommand createCommand = new OleDbCommand(selectString, myConn);
+                createCommand.ExecuteNonQuery();
+                OleDbDataReader myReader = createCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    priceItem = (double)myReader["Price"];
+                }
+                myReader.Close();
+                myConn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } 
+            this.BlockPrice.Text = priceItem.ToString();
         }
 
         private void ComboBoxSelectionTable(object sender, SelectionChangedEventArgs e)
         {
-            // ... Get the ComboBox.
+            //... Get the ComboBox.
             var comboBox = sender as ComboBox;
-
-            // ... Set SelectedItem as Window Title.
+            //... Set SelectedItem as Window Title.
             string value = comboBox.SelectedItem as string;
             this.Title = "Selected: " + value;
         }
@@ -119,6 +143,7 @@ namespace RestaurantOrderingSystem
             var comboBox = sender as ComboBox;
             string value = comboBox.SelectedItem as string;
             this.Title = "Selected: " + value;
+            ComboBoxLoadMenuItem();
         }
 
         private void ComboBoxSelectionMenuItem(object sender, SelectionChangedEventArgs e)
@@ -126,16 +151,7 @@ namespace RestaurantOrderingSystem
             var comboBox = sender as ComboBox;
             string value = comboBox.SelectedItem as string;
             this.Title = "Selected: " + value;
-        }
-
-        private void Radio1_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Radio2_Checked(object sender, RoutedEventArgs e)
-        {
-
+            PriceItem();
         }
 
         private void CancelButtonClick(object sender, RoutedEventArgs e)
@@ -152,13 +168,7 @@ namespace RestaurantOrderingSystem
             list.Add("Table : " + Tables.Text);
 
             // Information about selected menu item
-            list.Add("Category: " + MenuCategory.Text + ", Item: " + MenuItem.Text + ", Price: $ ...");
-
-            // Is the CheckBox checked
-            list.Add("The checkBox is checked: " + CheckBox.IsChecked.ToString());
-
-            // Take the choice from Radio buttons 
-            list.Add(((bool)Radio1.IsChecked) ? "Radio button: 1" : "Radio button: 2");
+            list.Add("Category: " + MenuCategory.Text + ", Item: " + MenuItem.Text + ", Price: "+ BlockPrice.Text);
 
             // Take the information from the calendar
             list.Add("Selected date: " + Calendar.SelectedDate.ToString());
@@ -183,6 +193,35 @@ namespace RestaurantOrderingSystem
                 }
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
+
+        private decimal Price()
+        {
+            decimal priceItem = decimal.Parse(BlockPrice.Text.ToString());
+            decimal quantityItem = decimal.Parse(BoxQuantity.Text.ToString());
+            decimal discountItem = decimal.Parse(this.BoxDiscount.Text.ToString());
+            return (priceItem * quantityItem) - ((priceItem * quantityItem)*discountItem);
+        }
+        int count = 0;
+        private void AddItemButtonClick(object sender, RoutedEventArgs e)
+        {
+            count++;
+            StringBuilder sb = new StringBuilder();
+            sb.Append(count);
+            sb.Append(".");
+            sb.Append(this.MenuItem.SelectedValue);
+            sb.Append("-");
+            sb.Append(this.BoxQuantity.Text.ToString());
+            sb.Append("-");
+            sb.Append(this.BlockPrice.Text.ToString());
+            sb.Append("-");
+            sb.Append(Price().ToString());
+            this.ListOrder.Items.Add(sb.ToString());
+        }
+
+        private void CancelButtonItem(object sender, RoutedEventArgs e)
+        {
+            this.ListOrder.Items.Clear();
+            count = 0;
+        }
     }
 }
