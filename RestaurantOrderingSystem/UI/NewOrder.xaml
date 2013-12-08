@@ -35,16 +35,16 @@
             HorizontalAlignment="Left" VerticalAlignment="Top" Margin="369,20,0,0" FontFamily="Comic Sans MS"/>
 
         <Label Content="Quantity" Margin="19,153,405,109" FontFamily="Comic Sans MS"/>
-        <TextBox x:Name="BoxQuantity" Text="1" Margin="91,153,281,180" Background="#FFE5E5E5" />
+        <TextBox x:Name="BoxQuantity" Text="1" Margin="91,153,281,173" Background="#FFE5E5E5" />
 
         <Label Content="Price" Margin="31,183,412,74" FontFamily="Comic Sans MS"/>
-        <TextBlock Name="BlockPrice" Margin="91,188,281,145" Background="#FFE5E5E5"/>
+        <TextBlock Name="BlockPrice" Margin="91,188,281,140" Background="#FFE5E5E5"/>
 
         <Label Content="Persons" Margin="20,218,405,42" FontFamily="Comic Sans MS"/>
-        <TextBox Name="BoxPersons" Text="Anonymous" Margin="92,223,280,109" Background="#FFE5E5E5"/>
+        <TextBox Name="BoxPersons" Text="Anonymous" Margin="92,223,280,104" Background="#FFE5E5E5"/>
 
         <Label Content="Discount" Margin="19,255,406,5" FontFamily="Comic Sans MS" RenderTransformOrigin="0.552,0.435"/>
-        <TextBox Name="BoxDiscount" Text="0" Margin="91,259,281,74" Background="#FFE5E5E5"/>
+        <TextBox Name="BoxDiscount" Text="0" Margin="91,259,281,70" Background="#FFE5E5E5"/>
         <ListBox Name="ListOrder" HorizontalAlignment="Left" Height="217" Margin="267,63,0,0" VerticalAlignment="Top" Width="204"/>
         <Button 
             Content="Cancel Item" 
