@@ -12,7 +12,7 @@ namespace RestaurantOrderingSystem.UI
     {
         //adding list of items to ComboBox selection
         public ObservableCollection<Dessert> MenuList {get;set;}
-        private Dessert selectedItem;
+        public Dessert selectedItem;
 
         public MenuCategory()
         {

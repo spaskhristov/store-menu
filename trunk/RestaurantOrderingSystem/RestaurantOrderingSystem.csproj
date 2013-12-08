@@ -34,8 +34,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -44,6 +49,8 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -53,6 +60,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UI\CheckItem.xaml.cs">
+      <DependentUpon>CheckItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ViewModelBase.cs" />
+    <Compile Include="UI\MenuCategory.cs" />
     <Compile Include="UI\NewOrder.xaml.cs">
       <DependentUpon>NewOrder.xaml</DependentUpon>
     </Compile>
@@ -87,6 +99,10 @@
     <Compile Include="Restaurant\Services\Serve.cs" />
     <Compile Include="Restaurant\Table.cs" />
     <Compile Include="Restaurant\Zone.cs" />
+    <Page Include="UI\CheckItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\NewOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +166,24 @@
     <Content Include="Database\Orders.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\Apple.png" />
+    <Resource Include="Images\Beer.png" />
+    <Resource Include="Images\BlackTea.png" />
+    <Resource Include="Images\Cherry cake.png" />
+    <Resource Include="Images\Chocolate icecream.png" />
+    <Resource Include="Images\Coffee.png" />
+    <Resource Include="Images\Hot Chocolate.png" />
+    <Resource Include="Images\Meal.png" />
+    <Resource Include="Images\MenuCategory.png" />
+    <Resource Include="Images\Milkshake Vanilla.png" />
+    <Resource Include="Images\Orange.png" />
+    <Resource Include="Images\Pizza.png" />
+    <Resource Include="Images\Spaghetti.png" />
+    <Resource Include="Images\Strawberry cake.png" />
+    <Resource Include="Images\Strawberry icecream.png" />
+    <Resource Include="Images\Tea.png" />
+    <Resource Include="Images\Toast.png" />
+    <Resource Include="Images\Wine.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
