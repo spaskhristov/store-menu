@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using RestaurantOrderingSystem.UI;
 namespace RestaurantOrderingSystem
 {
     /// <summary>
@@ -24,15 +24,15 @@ namespace RestaurantOrderingSystem
     {
         public MainWindow()
         {
-            //if (Login.IsOpen)
-            //{
-            //    Login.IsOpen = true;
-            //    Login login = new Login();
-            //    login.Show();
-            //    this.Close();
-            //}
-            //else
-            //{
+            if (Login.IsOpen)
+            {
+                Login.IsOpen = true;
+                Login login = new Login();
+                login.Show();
+                this.Close();
+            }
+            else
+            {
                 // Clock
                 System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
                 timer.Tick += new EventHandler(TimerTick);
@@ -65,7 +65,7 @@ namespace RestaurantOrderingSystem
 
                 // List of orders
                 LoadTable();
-            //}
+            }
         }
 
         // Clock method
@@ -99,8 +99,10 @@ namespace RestaurantOrderingSystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }
+                CustomException myCustom = new CustomException();
+                myCustom.CustomMessage = ex.Message;
+                MessageBox.Show(myCustom.CustomMessage);
+            }            
         }
 
         // Create a new order
@@ -126,44 +128,116 @@ namespace RestaurantOrderingSystem
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {            
-            Table1.Background = new SolidColorBrush(Colors.Red);  
+        {
+            if (tb1.IsChecked == true)
+            {
+                Table1.Background = new SolidColorBrush(Colors.Red);      
+            }
+            else
+            {
+                
+                Table1.Background = new SolidColorBrush(Colors.LightGreen);      
+            }
+            
             //Table1.Background = new SolidColorBrush(Colors.Green); 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Table2.Background = new SolidColorBrush(Colors.Red);
+            if (tb2.IsChecked == true)
+            {
+                Table2.Background = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+
+                Table2.Background = new SolidColorBrush(Colors.LightGreen);
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Table3.Background = new SolidColorBrush(Colors.Red);
+            if (tb3.IsChecked == true)
+            {
+                Table3.Background = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+
+                Table3.Background = new SolidColorBrush(Colors.LightGreen);
+            }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            Table4.Background = new SolidColorBrush(Colors.Red);
+            if (tb4.IsChecked == true)
+            {
+                Table4.Background = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+
+                Table4.Background = new SolidColorBrush(Colors.LightGreen);
+            }
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            Table5.Background = new SolidColorBrush(Colors.Red);
+            if (tb5.IsChecked == true)
+            {
+                Table5.Background = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+
+                Table5.Background = new SolidColorBrush(Colors.LightGreen);
+            }
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            Table6.Background = new SolidColorBrush(Colors.Red);
+            if (tb6.IsChecked == true)
+            {
+                Table6.Background = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+
+                Table6.Background = new SolidColorBrush(Colors.LightGreen);
+            }
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            Table7.Background = new SolidColorBrush(Colors.Red);
+            if (tb7.IsChecked == true)
+            {
+                Table7.Background = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+
+                Table7.Background = new SolidColorBrush(Colors.LightGreen);
+            }
         }
 
         private void Button_Click_7(object sender, RoutedEventArgs e)
         {
-            Table8.Background = new SolidColorBrush(Colors.Red);
+            if (tb8.IsChecked == true)
+            {
+                Table8.Background = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+
+                Table8.Background = new SolidColorBrush(Colors.LightGreen);
+            }
+        }
+
+        private void ButtonOpenCheckItem_Click(object sender, RoutedEventArgs e)
+        {
+            CheckItem window = new CheckItem();
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Show();
         }
 
 
