@@ -24,7 +24,6 @@ namespace RestaurantOrderingSystem
     {
         public MainWindow()
         {
-            Login.isOpen = false;
             if (Login.IsOpen)
             {
                 Login.IsOpen = true;
@@ -94,9 +93,6 @@ namespace RestaurantOrderingSystem
                 dataAdp.Fill(dt);
                 OrdersDataGrid.ItemsSource = dt.DefaultView;
                 dataAdp.Update(dt);
-
-                // Sorting the data in descending order
-               // (OrdersDataGrid.ItemsSource as DataView).Sort = "Start Date";
 
                 // Close connection to database
                 myConn.Close();

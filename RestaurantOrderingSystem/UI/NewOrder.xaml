@@ -41,8 +41,8 @@
             <Label Foreground="DarkGreen" Content="Price" Margin="48,193,394.6,63.6" FontFamily="Comic Sans MS"/>
             <TextBlock Padding="5,1,0,0" Foreground="DarkGreen" Name="BlockPrice" Margin="98,195,336.6,173.6" Background="#FFEEFFEE"/>
 
-            <Label Foreground="DarkGreen" Content="Persons" Margin="33,233,391.6,26.6" FontFamily="Comic Sans MS"/>
-            <TextBox Foreground="DarkGreen" Name="BoxPersons" Text="Anonymous" Margin="98,233,336.6,133.6" Background="#FFEEFFEE"/>
+            <Label Foreground="DarkGreen" Content="Person" Margin="41,233,383.6,26.6" FontFamily="Comic Sans MS"/>
+            <TextBox Foreground="DarkGreen" Name="BoxPersonName" Text="Anonymous" Margin="98,233,336.6,133.6" Background="#FFEEFFEE"/>
 
             <Label Foreground="DarkGreen" Content="Discount" Margin="28,271,396.6,-11.4" FontFamily="Comic Sans MS" RenderTransformOrigin="0.552,0.435"/>
             <TextBox Foreground="DarkGreen" Name="BoxDiscount" Text="0" Margin="98,274,336.6,93.6" Background="#FFEEFFEE"/>
