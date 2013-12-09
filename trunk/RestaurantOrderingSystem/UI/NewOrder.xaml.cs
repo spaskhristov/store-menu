@@ -26,6 +26,7 @@ namespace RestaurantOrderingSystem
     /// </summary>
     public partial class NewOrder : Window
     {
+        private decimal total = 0;
         public NewOrder()
         {
             InitializeComponent();
@@ -183,34 +184,25 @@ namespace RestaurantOrderingSystem
         // The information about a new order
         private void AddOrderButtonClick(object sender, RoutedEventArgs e)
         {
-            List<string> list = new List<string>();
-
             // Information about selected menu item
-            list.Add("Category: " + MenuCategory.Text + ", Item: " + MenuItem.Text + ", Price: " + BlockPrice.Text);
+            // "Category: " + MenuCategory.Text + ", Item: " + MenuItem.Text + ", Price: " + BlockPrice.Text;
 
             // Take the information from the calendar
-            list.Add("Selected date: " + Calendar.SelectedDate.ToString());
+            // Calendar.SelectedDate.ToString());
 
-            // Add current date and time
-            list.Add("Current date and time: " + DateTime.Now.ToString());
-
-            // Export the result in external *.txt file
-            Write(list);
-
-
+            // Export the results to Database MDB file
             string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Orders.mdb";
             OleDbConnection myConn = new OleDbConnection(myConnection);
             string myInsertQuery = "INSERT INTO Orders values('" +
                 (Couter() + 1) + "','" +
                 this.Tables.Text + "','" +
-                2 + "','" +
                 DateTime.Now + "','" +
                 DateTime.Now + "','" +
                 "closed" + "','" +
-                100 + "','" +
-                "Anonymous" + "','" +
+                this.total + "','" +
+                this.BoxPersonName.Text + "','" +
                 "Pepa" + "','" +
-                "Maria" + "')";
+                Login.imputName + "')";
             OleDbCommand myCommand = new OleDbCommand(myInsertQuery);
             myCommand.Connection = myConn;
 
@@ -270,28 +262,19 @@ namespace RestaurantOrderingSystem
             return 0;
         }
 
-        private void Write(List<string> results)
-        {
-            StreamWriter write = new StreamWriter("../../Database/output.txt");
-            using (write)
-            {
-                foreach (var item in results)
-                {
-                    write.WriteLine(item);
-                }
-            }
-        }
-
         private decimal Price()
         {
             decimal priceItem = decimal.Parse(BlockPrice.Text.ToString());
             decimal quantityItem = decimal.Parse(BoxQuantity.Text.ToString());
             decimal discountItem = decimal.Parse(this.BoxDiscount.Text.ToString());
-            return (priceItem * quantityItem) - ((priceItem * quantityItem) * discountItem);
+            return (priceItem * quantityItem) - ((priceItem * quantityItem) * discountItem / 100);
         }
         int count = 0;
         private void AddItemButtonClick(object sender, RoutedEventArgs e)
         {
+
+            total += Price();
+
             count++;
             StringBuilder sb = new StringBuilder();
             sb.Append(count);
@@ -304,12 +287,14 @@ namespace RestaurantOrderingSystem
             sb.Append("-");
             sb.Append(Price().ToString());
             this.ListOrder.Items.Add(sb.ToString());
+
         }
 
         private void CancelButtonItem(object sender, RoutedEventArgs e)
         {
             this.ListOrder.Items.Clear();
             count = 0;
+            total = 0;
         }
     }
 }

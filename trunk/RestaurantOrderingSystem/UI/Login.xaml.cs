@@ -21,6 +21,7 @@ namespace RestaurantOrderingSystem
     public partial class Login : Window
     {
         public static bool isOpen = true;
+        public static string imputName = String.Empty;
 
         public Login()
         {
@@ -45,7 +46,7 @@ namespace RestaurantOrderingSystem
             {
                 string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Login.mdb";
                 OleDbConnection myConn = new OleDbConnection(myConnection);
-                string imputName = this.BoxName.Text.Trim();
+                imputName = this.BoxName.Text.Trim();
                 string imputPass = this.BoxPassword.Password;
                 string selectString = "SELECT * FROM Login WHERE User='" + imputName + "' AND Pass='" + imputPass + "'";
                 OleDbCommand selectCommand = new OleDbCommand(selectString, myConn);
