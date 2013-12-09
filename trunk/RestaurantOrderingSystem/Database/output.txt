@@ -1,4 +1,3 @@
-Table : 1
-Category: , Item: , Price: 
+Category: Starters, Item: Calamari, Price: 4.5
 Selected date: 
-Current date and time: 7.12.2013 г. 13:18:55 ч.
+Current date and time: 12/9/2013 10:19:03 PM

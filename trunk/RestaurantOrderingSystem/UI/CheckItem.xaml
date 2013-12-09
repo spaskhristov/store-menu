@@ -5,7 +5,7 @@
         Title="NewOrder" Height="300" Width="500"
         WindowStyle="None">
     <Grid Name="GridForBinding">
-        <Grid>
+        <Grid Style ="{StaticResource AnimatedBackground}">
             <Label
             Content="Table"
             HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Height="31" Margin="40,17,0,0"/>

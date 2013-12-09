@@ -1,19 +1,41 @@
 ﻿<Window x:Class="RestaurantOrderingSystem.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         Title="Aventurine - Restaurant Ordering System"
         WindowState="Maximized"
         WindowStyle="None">
-    <Grid Background="#FF01F3DD" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Label 
-            Content="Restaurant" FontFamily="Traditional Arabic" FontWeight="Bold" FontSize="20" 
+    <Grid Style ="{StaticResource AnimatedBackground}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Image gif:ImageBehavior.AnimatedSource="Images/Ave.gif" HorizontalAlignment="Center" VerticalAlignment="Top" Width="22" Margin="90,16,440,479"/>
+        <Label
+            Content="Restaurant" Foreground="DarkGreen" FontFamily="Traditional Arabic" FontWeight="Bold" FontSize="20"
             HorizontalAlignment="Center" Margin="214,10,440,479" Width="108" />
         <Label
             Content="Aventurine" FontFamily="Matura MT Script Capitals" FontSize="45"
-            HorizontalAlignment="Center" Margin="299,10,217.6,460.8" Width="245"/>
+            HorizontalAlignment="Center" Margin="299,10,217.6,460.8" Width="245">
+            <Label.Foreground>
+                <SolidColorBrush x:Name="MyText" Color="DarkGreen" />
+            </Label.Foreground>
+            <Label.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation 
+                                Storyboard.TargetName="MyText" 
+                                Storyboard.TargetProperty="Color" 
+                                From="Green" To="DarkGreen" 
+                                Duration="0:0:5" AutoReverse="True" RepeatBehavior="Forever" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Label.Triggers>
+            <Label.Effect>
+                <DropShadowEffect ShadowDepth="4" Direction="330" Color="Black" Opacity="0.5" BlurRadius="5"/>
+            </Label.Effect>
+        </Label>
         <Label
-            x:Name="clock" FontFamily="Georgia" FontSize="16"
-            Height="28" Width="80" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,14.6,0" />
+            x:Name="clock" FontWeight="Bold" Foreground="ForestGreen" FontFamily="Georgia" FontSize="16"
+            Height="28" Width="85" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,9.6,0" />
         <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,55,0,62" >
             <TabItem Header="Orders">
                 <Grid>
@@ -27,18 +49,33 @@
                         <Button Content="Find Now" HorizontalAlignment="Right" Width="70" Margin="0,3,80,7"/>
                         <Button Content="Clear" HorizontalAlignment="Right" Width="50" Margin="0,3,20,7"/>
                     </Grid>
-                    <Grid Grid.Row="1" VerticalAlignment="Stretch">
+                    <Grid Background="#FFEEFFEE" Grid.Row="1" VerticalAlignment="Stretch">
                         <DataGrid
+                            HorizontalGridLinesBrush="Gainsboro" VerticalGridLinesBrush="Gainsboro"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                            Background="Transparent"
+                            Foreground="ForestGreen"
                             x:Name="OrdersDataGrid"
-                            RowHeaderWidth="0" 
-                            ColumnWidth="*"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"/>
+                            RowHeaderWidth="0" ColumnWidth="*">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                    <Setter Property="Foreground" Value="Gray"/>
+                                    <Setter Property="FontWeight" Value="SemiBold"/>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="Block.TextAlignment" Value="Center"/>
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Style>
+                            </DataGrid.RowStyle>
+                        </DataGrid>
                     </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Tables">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFEEFFEE">
                     <StackPanel HorizontalAlignment="Left" Height="378" VerticalAlignment="Top" Width="750">
                         <Button Name="ButtonOpenCheckItem" Click="ButtonOpenCheckItem_Click" Content="Check Item"/>
                     </StackPanel>
@@ -58,11 +95,10 @@
                     <ToggleButton Name="tb6" Content="Table6" HorizontalAlignment="Left" Height="25" Margin="218,225,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_5"/>
                     <ToggleButton Name="tb7" Content="Table7" HorizontalAlignment="Left" Height="25" Margin="388,225,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_6"/>
                     <ToggleButton Name="tb8" Content="Table8" HorizontalAlignment="Left" Height="25" Margin="583,225,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_7"/>
-                    
                 </Grid>
             </TabItem>
             <TabItem Header="Menu Items">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFEEFFEE">
                     <ComboBox x:Name="images" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" VerticalAlignment="Top"
                       DisplayMemberPath="Title" SelectedValuePath="Image">
                     </ComboBox>

@@ -38,49 +38,57 @@ namespace RestaurantOrderingSystem
             comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
         }
+
         // Get data for ComboBox about Menu category
         private void ComboBoxLoadMenuCategory(object sender, RoutedEventArgs e)
         {
             List<string> data = new List<string>();
+
             try
             {
                 string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Menu.mdb";
                 OleDbConnection myConn = new OleDbConnection(myConnection);
+
+                // Open connection to database
                 myConn.Open();
+
                 string selectString = "SELECT Type FROM Menu";
                 OleDbCommand createCommand = new OleDbCommand(selectString, myConn);
                 createCommand.ExecuteNonQuery();
+
                 OleDbDataAdapter dataAdp = new OleDbDataAdapter(createCommand);
                 DataSet myDataSet = new DataSet();
                 dataAdp.Fill(myDataSet, "Menu");
+
                 int rowMax = myDataSet.Tables[0].Rows.Count;
                 for (int n = 0; n < rowMax; n++)
                 {
                     data.Add(myDataSet.Tables[0].Rows[n].ItemArray[0].ToString());
                 }
+
+                // Close connection to database
                 myConn.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
             var comboBox = sender as ComboBox;
-            data.Distinct();
             comboBox.ItemsSource = data.Distinct();
             comboBox.SelectedIndex = 0;
         }
-        private void ComboBoxLoadMenuItem(object sender, RoutedEventArgs e)
-        {
-            ComboBoxLoadMenuItem();
-        }
+
         // Get data for ComboBox about Menu items
-        private void ComboBoxLoadMenuItem()
+        private void ComboBoxLoadMenuItem(object sender, RoutedEventArgs e)
         {
             List<string> data = new List<string>();
             try
             {
                 string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Menu.mdb";
                 OleDbConnection myConn = new OleDbConnection(myConnection);
+
+                // Open connection to database
                 myConn.Open();
                 string selectedType = this.MenuCategory.SelectedItem.ToString();
                 string selectString = "SELECT Item FROM Menu WHERE Type='" + selectedType + "'";
@@ -94,6 +102,8 @@ namespace RestaurantOrderingSystem
                 {
                     data.Add(myDataSet.Tables[0].Rows[n].ItemArray[0].ToString());
                 }
+
+                // Close connection to database
                 myConn.Close();
             }
             catch (Exception ex)
@@ -103,6 +113,7 @@ namespace RestaurantOrderingSystem
             this.MenuItem.ItemsSource = data.Distinct();
             this.MenuItem.SelectedIndex = 0;
         }
+
         private void PriceItem()
         {
             double priceItem = 0;
@@ -110,19 +121,26 @@ namespace RestaurantOrderingSystem
             {
                 string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Menu.mdb";
                 OleDbConnection myConn = new OleDbConnection(myConnection);
+
+                // Open connection to database
                 myConn.Open();
 
-                string selectedItem = this.MenuItem.SelectedItem.ToString();
-
-                string selectString = "SELECT Price FROM Menu WHERE Item='" + selectedItem + "'";
-                OleDbCommand createCommand = new OleDbCommand(selectString, myConn);
-                createCommand.ExecuteNonQuery();
-                OleDbDataReader myReader = createCommand.ExecuteReader();
-                while (myReader.Read())
+                if (this.MenuItem.SelectedItem != null)
                 {
-                    priceItem = (double)myReader["Price"];
+                    string selectedItem = this.MenuItem.SelectedItem.ToString();        // "Calamari"
+
+                    string selectString = "SELECT Price FROM Menu WHERE Item='" + selectedItem + "'";
+                    OleDbCommand createCommand = new OleDbCommand(selectString, myConn);
+                    createCommand.ExecuteNonQuery();
+                    OleDbDataReader myReader = createCommand.ExecuteReader();
+                    while (myReader.Read())
+                    {
+                        priceItem = (double)myReader["Price"];
+                    }
+                    myReader.Close();
                 }
-                myReader.Close();
+
+                // Close connection to database
                 myConn.Close();
             }
             catch (Exception ex)
@@ -146,7 +164,7 @@ namespace RestaurantOrderingSystem
             var comboBox = sender as ComboBox;
             string value = comboBox.SelectedItem as string;
             this.Title = "Selected: " + value;
-            ComboBoxLoadMenuItem();
+            ComboBoxLoadMenuItem(null, null);
         }
 
         private void ComboBoxSelectionMenuItem(object sender, SelectionChangedEventArgs e)
@@ -167,9 +185,6 @@ namespace RestaurantOrderingSystem
         {
             List<string> list = new List<string>();
 
-            // The selected table
-            list.Add("Table : " + Tables.Text);
-
             // Information about selected menu item
             list.Add("Category: " + MenuCategory.Text + ", Item: " + MenuItem.Text + ", Price: " + BlockPrice.Text);
 
@@ -182,7 +197,77 @@ namespace RestaurantOrderingSystem
             // Export the result in external *.txt file
             Write(list);
 
+
+            string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Orders.mdb";
+            OleDbConnection myConn = new OleDbConnection(myConnection);
+            string myInsertQuery = "INSERT INTO Orders values('" +
+                (Couter() + 1) + "','" +
+                this.Tables.Text + "','" +
+                2 + "','" +
+                DateTime.Now + "','" +
+                DateTime.Now + "','" +
+                "closed" + "','" +
+                100 + "','" +
+                "Anonymous" + "','" +
+                "Pepa" + "','" +
+                "Maria" + "')";
+            OleDbCommand myCommand = new OleDbCommand(myInsertQuery);
+            myCommand.Connection = myConn;
+
+            // Open connection to database
+            myConn.Open();
+            try
+            {
+                myCommand.ExecuteNonQuery();
+                MessageBox.Show("records are successfully insert");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+            // Close connection to database
+            myConn.Close();
+
+            this.Hide();
+            MainWindow main = new MainWindow();
+            main.Show();
+            Application.Current.Windows[0].Close();
             this.Close();
+        }
+
+        private int Couter()
+        {
+            string result = String.Empty;
+            try
+            {
+                string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Orders.mdb";
+                OleDbConnection myConn = new OleDbConnection(myConnection);
+
+                // Open connection to database
+                myConn.Open();
+
+                string selectString = "SELECT ID FROM Orders";
+                OleDbCommand createCommand = new OleDbCommand(selectString, myConn);
+                createCommand.ExecuteNonQuery();
+
+                OleDbDataAdapter dataAdp = new OleDbDataAdapter(createCommand);
+                DataSet myDataSet = new DataSet();
+                dataAdp.Fill(myDataSet, "Orders");
+
+                int rowMax = myDataSet.Tables[0].Rows.Count;
+                result = myDataSet.Tables[0].Rows[rowMax - 1].ItemArray[0].ToString();
+
+                // Close connection to database
+                myConn.Close();
+
+                return int.Parse(result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return 0;
         }
 
         private void Write(List<string> results)

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 
-namespace RestaurantOrderingSystem.UI
+namespace RestaurantOrderingSystem
 {
     //using MVVM Design Pattern
     public abstract class ViewModelBase : INotifyPropertyChanged
@@ -12,6 +12,20 @@ namespace RestaurantOrderingSystem.UI
         public ViewModelBase()
         {
         }
+
+        //private string _colorString = "Red";
+        //public string ColorString
+        //{
+        //    get { return _colorString; }
+        //    set
+        //    {
+        //        if (_colorString != value)
+        //        {
+        //            _colorString = value;
+        //            OnPropertyChanged("ColorString");
+        //        }
+        //    }
+        //}
 
         protected void OnPropertyChanged(string propertyName)
         {
