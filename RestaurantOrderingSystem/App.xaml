@@ -3,6 +3,141 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key ="AnimatedBackground" TargetType ="{x:Type Panel}">
+            <Setter Property ="Background">
+                <Setter.Value>
+                    <DrawingBrush Stretch ="UniformToFill">
+                        <DrawingBrush.Drawing>
+                            <DrawingGroup>
+                                <GeometryDrawing>
+                                    <GeometryDrawing.Brush>
+                                        <SolidColorBrush Color ="White"/>
+                                    </GeometryDrawing.Brush>
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0,1,1"/>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing>
+                                    <GeometryDrawing.Brush>
+                                        <RadialGradientBrush>
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TranslateTransform X ="0.2" Y ="0"/>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#8507D600" Offset ="0"/>
+                                            <GradientStop Color="#654BFF45" Offset ="0"/>
+                                            <GradientStop Color="#8507D600" Offset ="0.33"/>
+                                            <GradientStop Color="#654BFF45" Offset ="0.66"/>
+                                            <GradientStop Color="#8507D600" Offset ="1"/>
+                                        </RadialGradientBrush>
+                                    </GeometryDrawing.Brush>
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0,1,1"/>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing>
+                                    <GeometryDrawing.Brush>
+                                        <RadialGradientBrush>
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterX ="0.5" CenterY ="0.5" ScaleX ="0.85" ScaleY ="0.85"/>
+                                                    <TranslateTransform X ="-0.45" Y ="0.45"/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#6507D600" Offset ="0"/>
+                                            <GradientStop Color="#354BFF45" Offset ="0"/>
+                                            <GradientStop Color="#6507D600" Offset ="0.33"/>
+                                            <GradientStop Color="#354BFF45" Offset ="0.66"/>
+                                            <GradientStop Color="#6507D600" Offset ="0.9"/>
+                                        </RadialGradientBrush>
+                                    </GeometryDrawing.Brush>
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0,1,1"/>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing>
+                                    <GeometryDrawing.Brush>
+                                        <RadialGradientBrush>
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterX ="0.5" CenterY ="0.5" ScaleX ="0.75" ScaleY ="0.75"/>
+                                                    <TranslateTransform X ="0.25" Y ="0.35"/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#6507D600" Offset ="0"/>
+                                            <GradientStop Color="#354BFF45" Offset ="0"/>
+                                            <GradientStop Color="#6507D600" Offset ="0.33"/>
+                                            <GradientStop Color="#004BFF45" Offset ="0.66"/>
+                                            <GradientStop Color="#0007D600" Offset ="0.9"/>
+                                        </RadialGradientBrush>
+                                    </GeometryDrawing.Brush>
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0,1,1"/>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing>
+                                    <GeometryDrawing.Brush>
+                                        <RadialGradientBrush>
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TranslateTransform X ="-0.1" Y ="0.05"/>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#4506B700" Offset ="0"/>
+                                            <GradientStop Color="#2522F71B" Offset ="0.25"/>
+                                            <GradientStop Color="#3507D600" Offset ="0.65"/>
+                                            <GradientStop Color="#154BFF45" Offset ="0.85"/>
+                                            <GradientStop Color ="Transparent" Offset ="1"/>
+                                        </RadialGradientBrush>
+                                    </GeometryDrawing.Brush>
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0,1,1"/>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                                <GeometryDrawing>
+                                    <GeometryDrawing.Brush>
+                                        <RadialGradientBrush>
+                                            <RadialGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterX ="0.5" CenterY ="0.5" ScaleX ="1.5" ScaleY ="1.5"/>
+                                                    <TranslateTransform X ="-0.025" Y ="0.06"/>
+                                                </TransformGroup>
+                                            </RadialGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#3522F71B" Offset ="0"/>
+                                            <GradientStop Color="#2506B700" Offset ="0.5"/>
+                                            <GradientStop Color="#354BFF45" Offset ="0.75"/>
+                                            <GradientStop Color ="Transparent" Offset ="0.9"/>
+                                            <GradientStop Color="#3507D600" Offset ="1"/>
+                                        </RadialGradientBrush>
+                                    </GeometryDrawing.Brush>
+                                    <GeometryDrawing.Geometry>
+                                        <RectangleGeometry Rect="0,0,1,1"/>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingGroup>
+                        </DrawingBrush.Drawing>
+                    </DrawingBrush>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent ="Control.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard >
+                                <ColorAnimation  RepeatBehavior="Forever" Duration="0:0:4" Storyboard.TargetProperty ="Background.Drawing.Children[1].Brush.GradientStops[0].Color" From ="#654BFF45"/>
+                                <DoubleAnimation RepeatBehavior="Forever" Duration="0:0:4" Storyboard.TargetProperty ="Background.Drawing.Children[1].Brush.GradientStops[0].Offset" From ="0" To ="0.33"/>
+                                <DoubleAnimation RepeatBehavior="Forever" Duration="0:0:4" Storyboard.TargetProperty ="Background.Drawing.Children[1].Brush.GradientStops[1].Offset" From ="0" To ="0.66"/>
+                                <DoubleAnimation RepeatBehavior="Forever" Duration="0:0:4" Storyboard.TargetProperty ="Background.Drawing.Children[1].Brush.GradientStops[2].Offset" From ="0.33" To ="1"/>
+                                <DoubleAnimation RepeatBehavior="Forever" Duration="0:0:4" Storyboard.TargetProperty ="Background.Drawing.Children[1].Brush.GradientStops[3].Offset" From ="0.66" To ="1.33"/>
+                                <DoubleAnimation RepeatBehavior="Forever" Duration="0:0:4" Storyboard.TargetProperty ="Background.Drawing.Children[1].Brush.GradientStops[4].Offset" From ="1" To ="1.66"/>
+                                <ColorAnimation  RepeatBehavior="Forever" Duration="0:0:2" Storyboard.TargetProperty ="Background.Drawing.Children[2].Brush.GradientStops[0].Color" From ="#654BFF45"/>
+                                <DoubleAnimation RepeatBehavior="Forever" Duration="0:0:2" Storyboard.TargetProperty ="Background.Drawing.Children[2].Brush.GradientStops[0].Offset" From ="0" To ="0.33"/>
+                                <DoubleAnimation RepeatBehavior="Forever" Duration="0:0:2" Storyboard.TargetProperty ="Background.Drawing.Children[2].Brush.GradientStops[1].Offset" From ="0" To ="0.66"/>
+                                <DoubleAnimation RepeatBehavior="Forever" Duration="0:0:2" Storyboard.TargetProperty ="Background.Drawing.Children[2].Brush.GradientStops[2].Offset" From ="0.33" To ="1"/>
+                                <DoubleAnimation RepeatBehavior="Forever" Duration="0:0:2" Storyboard.TargetProperty ="Background.Drawing.Children[2].Brush.GradientStops[3].Offset" From ="0.66" To ="1.33"/>
+                                <DoubleAnimation RepeatBehavior="Forever" Duration="0:0:2" Storyboard.TargetProperty ="Background.Drawing.Children[2].Brush.GradientStops[4].Offset" From ="1" To ="1.66"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

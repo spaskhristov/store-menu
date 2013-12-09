@@ -54,6 +54,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif">
+      <HintPath>.\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -168,6 +171,7 @@
     <Content Include="Database\Orders.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\Ave.gif" />
     <Resource Include="Images\Apple.png" />
     <Resource Include="Images\Beer.png" />
     <Resource Include="Images\BlackTea.png" />

@@ -24,6 +24,7 @@ namespace RestaurantOrderingSystem
     {
         public MainWindow()
         {
+            Login.isOpen = false;
             if (Login.IsOpen)
             {
                 Login.IsOpen = true;
@@ -44,24 +45,24 @@ namespace RestaurantOrderingSystem
 
                 //list of images
                 images.DataContext = new[] 
-            {
-                new { Title="Orange", Image="/Images/Orange.png" },
-                new { Title="Apple", Image="/Images/Apple.png" },
-                new { Title="Cherry cake", Image="/Images/Cherry cake.png" },
-                new { Title="Strawberry cake", Image="/Images/Strawberry cake.png" },
-                new { Title="Strawberry icecream", Image="/Images/Strawberry icecream.png" },
-                new { Title="Toast", Image="/Images/Toast.png" },
-                new { Title="Spaghetti", Image="/Images/Spaghetti.png" },
-                new { Title="Pizza", Image="/Images/Pizza.png" },
-                new { Title="Meal", Image="/Images/Meal.png" },
-                new { Title="Tea", Image="/Images/Tea.png" },
-                new { Title="BlackTea", Image="/Images/BlackTea.png" },
-                new { Title="Coffee", Image="/Images/Coffee.png" },
-                new { Title="Hot Chocolate", Image="/Images/Hot Chocolate.png" },
-                new { Title="Milkshake Vanilla", Image="/Images/Milkshake Vanilla.png" },
-                new { Title="Wine", Image="/Images/Wine.png" },
-                new { Title="Beer", Image="/Images/Beer.png" }
-            };
+                {
+                    new { Title="Orange", Image="/Images/Orange.png" },
+                    new { Title="Apple", Image="/Images/Apple.png" },
+                    new { Title="Cherry cake", Image="/Images/Cherry cake.png" },
+                    new { Title="Strawberry cake", Image="/Images/Strawberry cake.png" },
+                    new { Title="Strawberry icecream", Image="/Images/Strawberry icecream.png" },
+                    new { Title="Toast", Image="/Images/Toast.png" },
+                    new { Title="Spaghetti", Image="/Images/Spaghetti.png" },
+                    new { Title="Pizza", Image="/Images/Pizza.png" },
+                    new { Title="Meal", Image="/Images/Meal.png" },
+                    new { Title="Tea", Image="/Images/Tea.png" },
+                    new { Title="BlackTea", Image="/Images/BlackTea.png" },
+                    new { Title="Coffee", Image="/Images/Coffee.png" },
+                    new { Title="Hot Chocolate", Image="/Images/Hot Chocolate.png" },
+                    new { Title="Milkshake Vanilla", Image="/Images/Milkshake Vanilla.png" },
+                    new { Title="Wine", Image="/Images/Wine.png" },
+                    new { Title="Beer", Image="/Images/Beer.png" }
+                };
 
                 // List of orders
                 LoadTable();
@@ -94,6 +95,9 @@ namespace RestaurantOrderingSystem
                 OrdersDataGrid.ItemsSource = dt.DefaultView;
                 dataAdp.Update(dt);
 
+                // Sorting the data in descending order
+               // (OrdersDataGrid.ItemsSource as DataView).Sort = "Start Date";
+
                 // Close connection to database
                 myConn.Close();
             }
@@ -102,7 +106,7 @@ namespace RestaurantOrderingSystem
                 CustomException myCustom = new CustomException();
                 myCustom.CustomMessage = ex.Message;
                 MessageBox.Show(myCustom.CustomMessage);
-            }            
+            }
         }
 
         // Create a new order
@@ -131,14 +135,14 @@ namespace RestaurantOrderingSystem
         {
             if (tb1.IsChecked == true)
             {
-                Table1.Background = new SolidColorBrush(Colors.Red);      
+                Table1.Background = new SolidColorBrush(Colors.Red);
             }
             else
             {
-                
-                Table1.Background = new SolidColorBrush(Colors.LightGreen);      
+
+                Table1.Background = new SolidColorBrush(Colors.LightGreen);
             }
-            
+
             //Table1.Background = new SolidColorBrush(Colors.Green); 
         }
 
@@ -239,7 +243,5 @@ namespace RestaurantOrderingSystem
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Show();
         }
-
-
     }
 }
