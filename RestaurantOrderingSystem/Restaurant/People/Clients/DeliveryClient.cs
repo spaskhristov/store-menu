@@ -8,6 +8,7 @@ namespace RestaurantOrderingSystem
 {
     class DeliveryClient : Client
     {
-
+        // Constructor
+        public DeliveryClient(string name) : base(name) { }
     }
 }

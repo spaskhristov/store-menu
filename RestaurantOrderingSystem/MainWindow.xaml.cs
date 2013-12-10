@@ -40,9 +40,8 @@ namespace RestaurantOrderingSystem
                 timer.Start();
 
                 InitializeComponent();
-                //tableDesserts.ItemsSource = dataDesserts; not needed
 
-                //list of images
+                // List of images
                 images.DataContext = new[] 
                 {
                     new { Title="Orange", Image="/Images/Orange.png" },
@@ -63,7 +62,7 @@ namespace RestaurantOrderingSystem
                     new { Title="Beer", Image="/Images/Beer.png" }
                 };
 
-                // List of orders
+                // Table with list of orders
                 LoadTable();
             }
         }
@@ -74,6 +73,7 @@ namespace RestaurantOrderingSystem
             clock.Content = DateTime.Now.ToString("HH:mm:ss");
         }
 
+        // Load all orders from the Database in a table
         private void LoadTable()
         {
             try
@@ -108,17 +108,15 @@ namespace RestaurantOrderingSystem
         // Create a new order
         private void NewOrderButtonClick(object sender, RoutedEventArgs e)
         {
-            //this.Hide();
             NewOrder window = new NewOrder();
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Show();
-            //this.Close();   
         }
 
-        // Show some order
+        // Show some created order
         private void ShowOrderButtonClick(object sender, RoutedEventArgs e)
         {
-
+            // TODO: ...
         }
 
         // Close the main window
@@ -127,7 +125,7 @@ namespace RestaurantOrderingSystem
             this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonClickTable1(object sender, RoutedEventArgs e)
         {
             if (tb1.IsChecked == true)
             {
@@ -142,7 +140,7 @@ namespace RestaurantOrderingSystem
             //Table1.Background = new SolidColorBrush(Colors.Green); 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ButtonClickTable2(object sender, RoutedEventArgs e)
         {
             if (tb2.IsChecked == true)
             {
@@ -155,7 +153,7 @@ namespace RestaurantOrderingSystem
             }
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void ButtonClickTable3(object sender, RoutedEventArgs e)
         {
             if (tb3.IsChecked == true)
             {
@@ -168,7 +166,7 @@ namespace RestaurantOrderingSystem
             }
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void ButtonClickTable4(object sender, RoutedEventArgs e)
         {
             if (tb4.IsChecked == true)
             {
@@ -181,7 +179,7 @@ namespace RestaurantOrderingSystem
             }
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private void ButtonClickTable5(object sender, RoutedEventArgs e)
         {
             if (tb5.IsChecked == true)
             {
@@ -194,7 +192,7 @@ namespace RestaurantOrderingSystem
             }
         }
 
-        private void Button_Click_5(object sender, RoutedEventArgs e)
+        private void ButtonClickTable6(object sender, RoutedEventArgs e)
         {
             if (tb6.IsChecked == true)
             {
@@ -207,7 +205,7 @@ namespace RestaurantOrderingSystem
             }
         }
 
-        private void Button_Click_6(object sender, RoutedEventArgs e)
+        private void ButtonClickTable7(object sender, RoutedEventArgs e)
         {
             if (tb7.IsChecked == true)
             {
@@ -220,7 +218,7 @@ namespace RestaurantOrderingSystem
             }
         }
 
-        private void Button_Click_7(object sender, RoutedEventArgs e)
+        private void ButtonClickTable8(object sender, RoutedEventArgs e)
         {
             if (tb8.IsChecked == true)
             {
@@ -233,11 +231,78 @@ namespace RestaurantOrderingSystem
             }
         }
 
-        private void ButtonOpenCheckItem_Click(object sender, RoutedEventArgs e)
+        private void ButtonOpenCheckItemClick(object sender, RoutedEventArgs e)
         {
             CheckItem window = new CheckItem();
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Show();
+        }
+
+        private void FindOrderButtonClick(object sender, RoutedEventArgs e)
+        {
+            List<DataRow> data = new List<DataRow>();
+
+            try
+            {
+                string myConnection = @"provider=microsoft.jet.oledb.4.0;data source=..\..\Database\Orders.mdb";
+                OleDbConnection myConn = new OleDbConnection(myConnection);
+
+                // Open connection to database
+                myConn.Open();
+
+                string selectString = "SELECT * FROM Orders";
+                OleDbCommand createCommand = new OleDbCommand(selectString, myConn);
+                createCommand.ExecuteNonQuery();
+
+                OleDbDataAdapter dataAdp = new OleDbDataAdapter(createCommand);
+                DataSet myDataSet = new DataSet();
+                dataAdp.Fill(myDataSet, "Orders");
+
+                int rowMax = myDataSet.Tables[0].Rows.Count;
+
+                if (this.TextBoxSearch.Text == null || this.TextBoxSearch.Text == "")
+                {
+                    throw new ArgumentNullException();
+                }
+                else
+                {
+                    bool isFound = false;
+                    for (int n = 0; n < rowMax; n++)
+                    {
+                        if (myDataSet.Tables[0].Rows[n].ItemArray[0].ToString() == this.TextBoxSearch.Text)
+                        {
+                            MessageBox.Show(
+                                "Order " + this.TextBoxSearch.Text +
+                                "\nDate: " + myDataSet.Tables[0].Rows[n].ItemArray[2] +
+                                "\nTable: " + myDataSet.Tables[0].Rows[n].ItemArray[1] +
+                                "\nStatus: " + myDataSet.Tables[0].Rows[n].ItemArray[4] +
+                                "\nTotal: $" + myDataSet.Tables[0].Rows[n].ItemArray[5] +
+                                "\nClient: " + myDataSet.Tables[0].Rows[n].ItemArray[6] +
+                                "\nWaitress: " + myDataSet.Tables[0].Rows[n].ItemArray[8]
+                                );
+                            isFound = true;
+                            break;
+                        }
+                    }
+                    if (!isFound)
+                    {
+                        throw new EntryPointNotFoundException("Order " + this.TextBoxSearch.Text + " was not found in database!");
+                    }
+                }
+
+                // Close connection to database
+                myConn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        // Clear the search field
+        private void ClearSearchButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.TextBoxSearch.Text = String.Empty;
         }
     }
 }

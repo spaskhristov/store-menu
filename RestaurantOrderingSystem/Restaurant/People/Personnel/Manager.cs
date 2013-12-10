@@ -8,6 +8,7 @@ namespace RestaurantOrderingSystem
 {
     class Manager : Person
     {
-
+        // Constructor
+        public Manager(string name) : base(name) { }
     }
 }

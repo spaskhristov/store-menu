@@ -8,6 +8,9 @@ namespace RestaurantOrderingSystem
 {
     class InStoreClient : Client
     {
+        // Constructor
+        public InStoreClient(string name) : base(name) { }
+
         // Property
         public Table Table { get; set; }
     }

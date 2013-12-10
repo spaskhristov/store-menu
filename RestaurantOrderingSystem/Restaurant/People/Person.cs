@@ -10,5 +10,11 @@ namespace RestaurantOrderingSystem
     {
         // Property
         public string Name { get; set; }
+
+        // Constructor
+        public Person(string name)
+        {
+            this.Name = name;
+        }
     }
 }

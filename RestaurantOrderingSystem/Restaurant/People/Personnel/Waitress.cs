@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace RestaurantOrderingSystem
 {
-    class Waiter : Employee
+    class Waitress : Employee
     {
+        // Constructor
+        public Waitress(string name) : base(name) { }
+
         // Method
         public void ServeOrder()
         {
