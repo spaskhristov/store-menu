@@ -8,6 +8,7 @@ namespace RestaurantOrderingSystem
 {
     abstract class Employee : Person
     {
-
+        // Constructor
+        public Employee(string name) : base(name) { }
     }
 }

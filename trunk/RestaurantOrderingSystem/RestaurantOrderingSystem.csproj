@@ -97,7 +97,7 @@
     <Compile Include="Restaurant\People\Personnel\Cook.cs" />
     <Compile Include="Restaurant\People\Personnel\Employee.cs" />
     <Compile Include="Restaurant\People\Personnel\Manager.cs" />
-    <Compile Include="Restaurant\People\Personnel\Waiter.cs" />
+    <Compile Include="Restaurant\People\Personnel\Waitress.cs" />
     <Compile Include="Restaurant\Restaurant.cs" />
     <Compile Include="Restaurant\Services\Delivery.cs" />
     <Compile Include="Restaurant\Services\IServiceable.cs" />

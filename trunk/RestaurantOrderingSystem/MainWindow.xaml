@@ -45,9 +45,9 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <Label Content="Search for order" HorizontalAlignment="Right" Width="100" Margin="0,3,380,7"/>
-                        <TextBox HorizontalAlignment="Right" Width="220" Margin="0,3,160,7"/>
-                        <Button Content="Find Now" HorizontalAlignment="Right" Width="70" Margin="0,3,80,7"/>
-                        <Button Content="Clear" HorizontalAlignment="Right" Width="50" Margin="0,3,20,7"/>
+                        <TextBox x:Name="TextBoxSearch" HorizontalAlignment="Right" Width="220" Margin="0,3,160,7"/>
+                        <Button Content="Find Now" HorizontalAlignment="Right" IsDefault="True" Width="70" Margin="0,3,80,7" Click="FindOrderButtonClick"/>
+                        <Button Content="Clear" HorizontalAlignment="Right" Width="50" Margin="0,3,20,7" Click="ClearSearchButtonClick"/>
                     </Grid>
                     <Grid Background="#FFEEFFEE" Grid.Row="1" VerticalAlignment="Stretch">
                         <DataGrid
@@ -77,7 +77,7 @@
             <TabItem Header="Tables">
                 <Grid Background="#FFEEFFEE">
                     <StackPanel HorizontalAlignment="Left" Height="378" VerticalAlignment="Top" Width="750">
-                        <Button Name="ButtonOpenCheckItem" Click="ButtonOpenCheckItem_Click" Content="Check Item"/>
+                        <Button Name="ButtonOpenCheckItem" Click="ButtonOpenCheckItemClick" Content="Check Item"/>
                     </StackPanel>
                     <Grid Name="Table1" HorizontalAlignment="Left" Height="96" Margin="52,96,0,0" VerticalAlignment="Top" Width="96" Background="LightGreen"/>
                     <Grid Name="Table2" HorizontalAlignment="Left" Height="96" Margin="218,96,0,0" VerticalAlignment="Top" Width="96" Background="LightGreen"/>
@@ -87,14 +87,14 @@
                     <Grid Name="Table6" HorizontalAlignment="Left" Height="96" Margin="218,255,0,0" VerticalAlignment="Top" Width="96" Background="LightGreen"/>
                     <Grid Name="Table7" HorizontalAlignment="Left" Height="96" Margin="388,255,0,0" VerticalAlignment="Top" Width="96" Background="LightGreen"/>
                     <Grid Name="Table8" HorizontalAlignment="Left" Height="96" Margin="583,255,0,0" VerticalAlignment="Top" Width="96" Background="LightGreen"/>
-                    <ToggleButton Name="tb1" Content="Table1" HorizontalAlignment="Left" Height="25" Margin="52,66,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click"/>
-                    <ToggleButton Name="tb2" Content="Table2" HorizontalAlignment="Left" Height="25" Margin="218,66,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_1"/>
-                    <ToggleButton Name="tb3" Content="Table3" HorizontalAlignment="Left" Height="25" Margin="388,66,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_2"/>
-                    <ToggleButton Name="tb4" Content="Table4" HorizontalAlignment="Left" Height="25" Margin="583,66,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_3"/>
-                    <ToggleButton Name="tb5" Content="Table5" HorizontalAlignment="Left" Height="25" Margin="52,225,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_4"/>
-                    <ToggleButton Name="tb6" Content="Table6" HorizontalAlignment="Left" Height="25" Margin="218,225,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_5"/>
-                    <ToggleButton Name="tb7" Content="Table7" HorizontalAlignment="Left" Height="25" Margin="388,225,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_6"/>
-                    <ToggleButton Name="tb8" Content="Table8" HorizontalAlignment="Left" Height="25" Margin="583,225,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click_7"/>
+                    <ToggleButton Name="tb1" Content="Table1" HorizontalAlignment="Left" Height="25" Margin="52,66,0,0" VerticalAlignment="Top" Width="96" Click="ButtonClickTable1"/>
+                    <ToggleButton Name="tb2" Content="Table2" HorizontalAlignment="Left" Height="25" Margin="218,66,0,0" VerticalAlignment="Top" Width="96" Click="ButtonClickTable2"/>
+                    <ToggleButton Name="tb3" Content="Table3" HorizontalAlignment="Left" Height="25" Margin="388,66,0,0" VerticalAlignment="Top" Width="96" Click="ButtonClickTable3"/>
+                    <ToggleButton Name="tb4" Content="Table4" HorizontalAlignment="Left" Height="25" Margin="583,66,0,0" VerticalAlignment="Top" Width="96" Click="ButtonClickTable4"/>
+                    <ToggleButton Name="tb5" Content="Table5" HorizontalAlignment="Left" Height="25" Margin="52,225,0,0" VerticalAlignment="Top" Width="96" Click="ButtonClickTable5"/>
+                    <ToggleButton Name="tb6" Content="Table6" HorizontalAlignment="Left" Height="25" Margin="218,225,0,0" VerticalAlignment="Top" Width="96" Click="ButtonClickTable6"/>
+                    <ToggleButton Name="tb7" Content="Table7" HorizontalAlignment="Left" Height="25" Margin="388,225,0,0" VerticalAlignment="Top" Width="96" Click="ButtonClickTable7"/>
+                    <ToggleButton Name="tb8" Content="Table8" HorizontalAlignment="Left" Height="25" Margin="583,225,0,0" VerticalAlignment="Top" Width="96" Click="ButtonClickTable8"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Menu Items">

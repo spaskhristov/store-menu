@@ -8,6 +8,7 @@ namespace RestaurantOrderingSystem
 {
     class Cashier : Employee
     {
-
+        // Constructor
+        public Cashier(string name) : base(name) { }
     }
 }
