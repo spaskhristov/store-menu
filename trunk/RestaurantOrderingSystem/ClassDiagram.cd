@@ -10,7 +10,7 @@
   <Class Name="RestaurantOrderingSystem.MainWindow" Collapsed="true">
     <Position X="31.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAABAACAAAABggEAAAAgIEAAAAAICAACAAAABA=</HashCode>
+      <HashCode>CAAAAAAABAACAAAAFggEAAAAgIEAAAAAICAACAAAABA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -231,6 +231,11 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAIAAAAAAAAAAQAAA=</HashCode>
       <FileName>UI\MenuCategory.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="System.Exception" Collapsed="true">
+    <Position X="35" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
   </Class>
   <Struct Name="RestaurantOrderingSystem.FirmName" Collapsed="true">
     <Position X="29.75" Y="5.75" Width="1.5" />

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         Title="Aventurine - Restaurant Ordering System"
+        FocusManager.FocusedElement="{Binding ElementName=TextBoxSearch}"
         WindowState="Maximized"
         WindowStyle="None">
     <Grid Style ="{StaticResource AnimatedBackground}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
